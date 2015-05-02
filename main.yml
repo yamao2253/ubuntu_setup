@@ -1,0 +1,41 @@
+---
+- hosts: 127.0.0.1
+  sudo: yes
+  vars:
+    - ruby_version: 2.2.0
+  tasks:
+    - name: apt-get update
+      apt: update_cache=yes
+    - name: apt-get upgrade
+      apt: upgrade=full
+    - name: apt-get install git
+      apt: name=git state=latest
+    #- name: disable iptables
+    #  service: name=iptables state=stopped enabled=no
+    #- name: install libselinux-python
+    #  apt: name=libselinux-python state=latest
+    - name: remove localtime
+      file: path=/etc/localtime state=absent
+    - name: change timezone
+      file: src=/usr/share/zoneinfo/Asia/Tokyo dest=/etc/localtime state=link force=yes mode=0644
+    - name: install apache
+      apt: name=apache2 state=latest
+    - name: start apache and enabled
+      service: name=apache2 state=started enabled=yes
+    - name: change owner
+      file: dest=/var/www/html owner=vagrant recurse=yes
+    - name: install php
+      apt: name={{item}} state=latest
+      with_items:
+        - php5-common
+        - libapache2-mod-php5
+        - php5-cli
+        - php5-dev
+        - php5-mysql
+        - php5-gd
+      notify:
+        - restart apache
+
+  handlers:
+    - name: restart apache
+      service: name=apache2 state=restarted
