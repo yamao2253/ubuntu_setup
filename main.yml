@@ -38,8 +38,8 @@
         - php5-gd
       notify:
         - restart apache
-    - name: copy php.ini-production
-      copy: src=php.ini-production dest=/etc/php.ini backup=yes
+    - name: copy php.ini.yamao2253
+      copy: src=php.ini.yamao2253 dest=/etc/php.ini backup=yes
       notify:
         - restart apache
 
