@@ -45,6 +45,10 @@
 
     - name: install mysql
       apt: name=mysql-server state=present
+    - name: copy my.cnf.yamao2253
+      copy: src=my.cnf.yamao2253 dest=/etc/my.cnf backup=yes
+    - name start mysql and enabled
+      service: name=mysqld state=started enabled=yes
 
   handlers:
     - name: restart apache

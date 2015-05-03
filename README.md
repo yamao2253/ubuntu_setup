@@ -11,3 +11,17 @@
 * *date.timezone = Asia/Tokyo
 
 $ sudo service httpd restart
+
+## my.cnf.custom
+### Changed param from /etc/mysql/my.cnf
+
+* [mysqld] (Append)
+- character_set_server=utf8
+- default-storage-engine=InnoDB
+- innodb_file_per_table
+
+* [mysql]
+- default-character-set=utf8
+
+* [mysqldump]
+- default-character-set=utf8
