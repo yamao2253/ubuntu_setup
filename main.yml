@@ -58,8 +58,8 @@
         - build-essential
         - bzip2
         - libtool
-          #        - zlib
-          #        - zlib1g-dev
+        - zlib
+        - zlib1g-dev
           #        - apache2-dev
           #        - libcurl4-openssl-dev
           #        - libncurses5-dev
