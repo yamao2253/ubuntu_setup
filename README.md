@@ -45,3 +45,18 @@ libyaml-devel   → libyaml-dev
 libffi-devel    → libffi-dev
 bison
 
+
+    $ mkdir myubuntu && cd myubuntu
+    $ vagrant init ubuntu/trusty64
+    $ vi Vagrantfile # IP編集
+    $ vagrant up
+    $ vagrant ssh
+    $ sudo apt-get -y install git
+    $ mkdir repos && cd repos
+    $ git clone https://github.com/yamao2253/ubuntu_setup.git
+    $ cd ubuntu_setup
+    $ ./run.sh
+    $ exec $SHELL -l
+
+chsh -s /usr/bin/zsh vagrant
+
