@@ -84,11 +84,11 @@
       copy: src=bash_profile.custom dest=/home/vagrant/.bash_profile backup=yes
       sudo: no 
 
-    #- name: check ruby installed
-    #  shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
-    #  register: ruby_installed
-    #  ignore_errors: yes
-    #  sudo: no
+    - name: check ruby installed
+      shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
+      register: ruby_installed
+      ignore_errors: yes
+      sudo: no
     #  - name: install ruby
     #    shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
     #    when: ruby_installed.rc != 0
