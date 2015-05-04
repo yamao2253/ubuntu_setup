@@ -78,6 +78,11 @@
       sudo: no
     - name: git clone rbenv
       git: repo=https://github.com/sstephenson/rbenv.git dest=/home/vagrant/.rbenv
+      when: rbenv_present.rc != 0
+      sudo: no
+    - name: update bash_profile
+      copy: src=bash_profile.custom dest=/home/vagrant/.bash_profile backup=yes
+      sudo: no 
 
   handlers:
     - name: restart apache
