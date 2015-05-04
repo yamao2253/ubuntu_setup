@@ -25,3 +25,23 @@ $ sudo service httpd restart
 
 * [mysqldump]
 - default-character-set=utf8
+
+gcc
+openssl-devel   → libssl-dev
+
+gcc-c++         → build-essential
+bzip2
+libtool
+zlib
+zlib-devel      → zlib1g-dev
+httpd-devel     → apache2-dev
+curl-devel      → libcurl4-openssl-dev
+ncurses-devel   → libncurses5-dev
+gdbm-devel      → libgdbm-dev
+readline        → libreadline6
+readline-devel  → libreadline6-dev
+sqlite-devel    → libsqlite3-dev
+libyaml-devel   → libyaml-dev
+libffi-devel    → libffi-dev
+bison
+
