@@ -56,8 +56,8 @@
         - gcc
         - libssl-dev
         - build-essential
-          #        - bzip2
-          #        - libtool
+        - bzip2
+        - libtool
           #        - zlib
           #        - zlib1g-dev
           #        - apache2-dev
