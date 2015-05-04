@@ -32,7 +32,7 @@ openssl-devel   → libssl-dev
 gcc-c++         → build-essential
 bzip2
 libtool
-zlib
+zlib            → zlib1g
 zlib-devel      → zlib1g-dev
 httpd-devel     → apache2-dev
 curl-devel      → libcurl4-openssl-dev
