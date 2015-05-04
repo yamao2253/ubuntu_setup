@@ -30,6 +30,8 @@ gcc
 openssl-devel   → libssl-dev
 
 gcc-c++         → build-essential
+                → libffi-dev  (for ruby 2.2.0 build)
+
 bzip2
 libtool
 zlib            → zlib1g

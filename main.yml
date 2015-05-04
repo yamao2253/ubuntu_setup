@@ -56,6 +56,7 @@
         - gcc
         - libssl-dev
         - build-essential
+        - libffi-dev
         - bzip2
         - libtool
         - zlib1g
@@ -99,7 +100,6 @@
       register: ruby_installed
       ignore_errors: yes
       sudo: no
-
     - name: install ruby
       shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
