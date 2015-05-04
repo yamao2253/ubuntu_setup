@@ -56,6 +56,7 @@
         - gcc
         - libssl-dev
         - build-essential
+        - autoconf
         - libffi-dev
         - bzip2
         - libtool
