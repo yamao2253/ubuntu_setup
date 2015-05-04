@@ -54,22 +54,22 @@
       apt: name={{item}} state=present
       with_items:
         - gcc
-        - libssl-dev
-        - build-essential
-        - bzip2
-        - libtool
-        - zlib
-        - zlib1g-dev
-        - apache2-dev
-        - libcurl4-openssl-dev
-        - libncurses5-dev
-        - libgdbm-dev
-        - libreadline6
-        - libreadline6-dev
-        - libsqlite3-dev
-        - libyaml-dev
-        - libffi-dev
-        - bison
+          #        - libssl-dev
+          #        - build-essential
+          #        - bzip2
+          #        - libtool
+          #        - zlib
+          #        - zlib1g-dev
+          #        - apache2-dev
+          #        - libcurl4-openssl-dev
+          #        - libncurses5-dev
+          #        - libgdbm-dev
+          #        - libreadline6
+          #        - libreadline6-dev
+          #        - libsqlite3-dev
+          #        - libyaml-dev
+          #        - libffi-dev
+          #        - bison
 
   handlers:
     - name: restart apache
