@@ -84,6 +84,16 @@
       copy: src=bash_profile.custom dest=/home/vagrant/.bash_profile backup=yes
       sudo: no 
 
+    - name: check ruby-build installed
+      command: test -x /home/vagrant/.rbenv/plugins/ruby-build
+      register: rbuild_present
+      ignore_errors: yes
+      sudo: no
+    - name: git clone ruby-build
+      git: repo=https://github.com/sstephenson/ruby-build.git dest=/home/vagrant/.rbenv/plugins/ruby-build
+      when: rbuild_present.rc != 0
+      sudo: no
+
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
       register: ruby_installed
