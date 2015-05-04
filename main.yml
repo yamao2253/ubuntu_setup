@@ -71,6 +71,14 @@
         - libffi-dev
         - bison
 
+    - name: check rbenv installed
+      command: test -x /home/vagrant/.rbenv
+      register: rbenv_present
+      ignore_errors: yes
+      sudo: no
+    - name: git clone rbenv
+      git: repo=https://github.com/sstephenson/rbenv.git dest=/home/vagrant/.rbenv
+
   handlers:
     - name: restart apache
       service: name=apache2 state=restarted
