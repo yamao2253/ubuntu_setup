@@ -107,7 +107,7 @@
       shell: /bin/bash -lc "curl -sL https://rpm.nodesource.com/setup | bash -"
       when: node_installed.rc != 0
     - name: install nodejs
-      yum: name=nodejs state=latest
+      apt: name=nodejs state=latest
       when: node_installed.rc != 0
 
   handlers:
