@@ -91,6 +91,7 @@
     - name: source bash_profile
       command: source /home/vagrant/.bash_profile
       sudo: no
+      sudo_user: vagrant
 
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
