@@ -88,6 +88,9 @@
       when: rbuild_present.rc != 0
       sudo: no
 
+    - name: source bash_profile
+      command: source ~/.bash_profile
+
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
       register: ruby_installed

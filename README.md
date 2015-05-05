@@ -1,4 +1,11 @@
-# ubuntu_setup
+# yamao2253/ubuntu_setup
+
+## 内容
+* Ubuntuのローカル開発環境構築スクリプト
+* ベースは、ドットインストールレッスンで使われていたもの (CentOS)
+  ローカル開発環境の構築[MacOS X編] #05  
+  https://github.com/dotinstallres/centos65.git
+* 
 
 ## php.ini.custom
 ### Changed param from php.ini-production
@@ -68,38 +75,46 @@ libreadline-dev
 chsh -s /usr/bin/zsh vagrant
 
 sudo apt-get install 
-autoconf 
-bison 
-build-essential 
-libssl-dev 
-libyaml-dev 
-libreadline6-dev 
-zlib1g-dev 
-libncurses5-dev 
-libffi-dev 
-libgdbm3 
-libgdbm-dev
-       
-        backup
-        - gcc
-        - libssl-dev
-        - build-essential
-        - autoconf
-        - libffi-dev
-        - bzip2
-        - libtool
-        - zlib1g
-        - zlib1g-dev
-        - apache2-dev
-        - libcurl4-openssl-dev
-        - libncurses5-dev
+        - autoconf 
+        - bison 
+        - build-essential 
+        - libssl-dev 
+        - libyaml-dev 
+        - libreadline6-dev 
+        - zlib1g-dev 
+        - libncurses5-dev 
+        - libffi-dev 
+        - libgdbm3 
         - libgdbm-dev
-        - libreadline6
-        - libreadline6-dev
+       
+        backup =====================
+        - gcc
+        - apache2-dev
+        付け足し
+        - libcurl4-openssl-dev
+        - libtool
         - libsqlite3-dev
-        - libyaml-dev
-        - libffi-dev
+        - bzip2
+        - zlib1g
+
+        - libxml2-dev
+        - libxslt-dev
+        - python-software-properties
+        - libreadline6
+
+        インストール済み(ansible)
+        - autoconf
         - bison
+        - build-essential
+        - libssl-dev
+        - libyaml-dev
+        - libreadline6-dev
+        - zlib1g-dev
+        - libncurses5-dev
+        - libffi-dev
+
+        - libgdbm-dev
+        ===========================
 
 ## rbenv 2.0.0-p195/2.1. インストール
     $ find /usr -name libreadline.so
