@@ -89,7 +89,6 @@ sudo apt-get install
        
         backup =====================
         - gcc
-        - apache2-dev
         付け足し
         - libcurl4-openssl-dev
         - libtool
@@ -101,6 +100,7 @@ sudo apt-get install
         - libxslt-dev
         - python-software-properties
         - libreadline6
+        - apache2-dev
 
         インストール済み(ansible)
         - autoconf

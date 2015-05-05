@@ -2,7 +2,7 @@
 - hosts: 127.0.0.1
   sudo: yes
   vars:
-    - ruby_version: 2.2.0
+    - ruby_version: 2.0.0-p195
   tasks:
     - name: apt-get update
       apt: update_cache=yes
