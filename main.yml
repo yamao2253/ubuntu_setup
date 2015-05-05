@@ -88,10 +88,9 @@
       when: rbuild_present.rc != 0
       sudo: no
 
-    - name: source bash_profile
-      command: source /home/vagrant/.bash_profile
-      sudo: no
-      sudo_user: vagrant
+    #- name: source bash_profile
+    #  command: source /home/vagrant/.bash_profile
+    #  sudo: no
 
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
