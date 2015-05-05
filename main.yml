@@ -106,9 +106,12 @@
     - name: install node script
       shell: /bin/bash -lc "curl -sL https://deb.nodesource.com/setup | bash -"
       when: node_installed.rc != 0
-    - name: install nodejs
-      apt: name=nodejs state=latest
-      when: node_installed.rc != 0
+    #- name: install nodejs
+    #  apt: name=nodejs state=latest
+    #  when: node_installed.rc != 0
+
+    - name: install nodejs (ppa)
+    - apt_repository: repo='ppa:chris-lea/node.js'
 
   handlers:
     - name: restart apache
