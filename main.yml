@@ -53,25 +53,17 @@
     - name: install ruby dependencies
       apt: name={{item}} state=present
       with_items:
-        - gcc
-        - libssl-dev
-        - build-essential
-        - autoconf
-        - libffi-dev
-        - bzip2
-        - libtool
-        - zlib1g
-        - zlib1g-dev
-        - apache2-dev
-        - libcurl4-openssl-dev
-        - libncurses5-dev
+        - autoconf 
+        - bison 
+        - build-essential 
+        - libssl-dev 
+        - libyaml-dev 
+        - libreadline6-dev 
+        - zlib1g-dev 
+        - libncurses5-dev 
+        - libffi-dev 
+        - libgdbm3 
         - libgdbm-dev
-        - libreadline6
-        - libreadline6-dev
-        - libsqlite3-dev
-        - libyaml-dev
-        - libffi-dev
-        - bison
 
     - name: check rbenv installed
       command: test -x /home/vagrant/.rbenv
@@ -102,7 +94,7 @@
       ignore_errors: yes
       sudo: no
     - name: install ruby
-      shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
+      shell: /bin/bash -lc "CONFIGURE_OPTS=--with-readline-dir="/usr/lib/x86_64-linux-gnu/libreadline.so" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
       sudo: no
 

@@ -47,6 +47,11 @@ libyaml-devel   → libyaml-dev
 libffi-devel    → libffi-dev
 bison
 
+保留
+libxslt-dev
+libxml2-dev
+python-software-properties
+libreadline-dev
 
     $ mkdir myubuntu && cd myubuntu
     $ vagrant init ubuntu/trusty64
@@ -62,3 +67,40 @@ bison
 
 chsh -s /usr/bin/zsh vagrant
 
+sudo apt-get install 
+autoconf 
+bison 
+build-essential 
+libssl-dev 
+libyaml-dev 
+libreadline6-dev 
+zlib1g-dev 
+libncurses5-dev 
+libffi-dev 
+libgdbm3 
+libgdbm-dev
+       
+        backup
+        - gcc
+        - libssl-dev
+        - build-essential
+        - autoconf
+        - libffi-dev
+        - bzip2
+        - libtool
+        - zlib1g
+        - zlib1g-dev
+        - apache2-dev
+        - libcurl4-openssl-dev
+        - libncurses5-dev
+        - libgdbm-dev
+        - libreadline6
+        - libreadline6-dev
+        - libsqlite3-dev
+        - libyaml-dev
+        - libffi-dev
+        - bison
+
+## rbenv 2.0.0-p195/2.1. インストール
+    $ find /usr -name libreadline.so
+    $ CONFIGURE_OPTS=--with-readline-dir="/usr/lib/x86_64-linux-gnu/libreadline.so" rbenv install 2.0.0-p195
