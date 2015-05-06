@@ -115,6 +115,9 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
+    - name: Install sqlite3
+      gem: name=sqlite3 state=latest
+
   handlers:
     - name: restart apache
       service: name=apache2 state=restarted

@@ -8,6 +8,3 @@ test -z $(which ansible-playbook) && \
 
 ansible-playbook main.yml --connection=local
 exec $SHELL -l
-
-ruby -v
-node -v
