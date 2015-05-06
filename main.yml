@@ -8,12 +8,6 @@
       apt: update_cache=yes
     - name: apt-get upgrade
       apt: upgrade=full
-    #- name: apt-get install git
-    #  apt: name=git state=latest
-    #- name: disable iptables
-    #  service: name=iptables state=stopped enabled=no
-    #- name: install libselinux-python
-    #  apt: name=libselinux-python state=latest
 
     - name: remove localtime
       file: path=/etc/localtime state=absent
@@ -115,12 +109,12 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-    - name: gem preparation of sqlite3 install(libsqlite3-dev)
-      apt: name=libsqlite3-dev state=present
-
     - name: gem install activerecord
       gem: name=activerecord state=latest
       sudo: no
+
+    - name: gem preparation of sqlite3 install(libsqlite3-dev)
+      apt: name=libsqlite3-dev state=present
 
     - name: gem install sqlite3
       gem: name=sqlite3 state=latest

@@ -119,3 +119,14 @@ sudo apt-get install
 ## rbenv 2.0.0-p195/2.1. インストール
     $ find /usr -name libreadline.so
     $ CONFIGURE_OPTS=--with-readline-dir="/usr/lib/x86_64-linux-gnu/libreadline.so" rbenv install 2.0.0-p195
+
+- [ ] 先に2.1.5を入れてから、2.2.0を入れてみる
+→ ダメだった
+
+- [x] disable-install-rdoc
+CONFIGURE_OPTS="--disable-install-rdoc --enable-shared" rbenv install 2.2.0
+→ rdocで失敗している。rdocをディスエーブルするオプションつけたら、インストールできた
+
+## require/reloaderエラー
+tiltが衝突(1.4.1/2.0.1)が衝突しているのが原因
+どちらか(2.0.1)をアンストールすると回避できる
