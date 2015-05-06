@@ -117,6 +117,7 @@
 
     - name: Install sqlite3
       gem: name=sqlite3 state=latest
+      sudo: no
 
   handlers:
     - name: restart apache
