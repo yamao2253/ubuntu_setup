@@ -115,12 +115,25 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-    - name: preparation of gem sqlite3 (libsqlite3-dev)
+    - name: gem preparation of sqlite3 install(libsqlite3-dev)
       apt: name=libsqlite3-dev state=present
 
-    - name: Install sqlite3
+    - name: gem install activerecord
+      gem: name=activerecord state=latest
+      sudo: no
+
+    - name: gem install sqlite3
       gem: name=sqlite3 state=latest
       sudo: no
+
+    - name: gem install sinatra
+      gem: name=sinatra state=latest
+      sudo: no
+
+    - name: gem install sinatra-contrib
+      gem: name=sinatra-contrib state=latest
+      sudo: no
+   
 
   handlers:
     - name: restart apache
