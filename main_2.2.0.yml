@@ -89,7 +89,7 @@
       ignore_errors: yes
       sudo: no
     - name: install ruby
-      shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
+      shell: /bin/bash -lc "CONFIGURE_OPTS="--disable-install-rdoc" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
       sudo: no
 
