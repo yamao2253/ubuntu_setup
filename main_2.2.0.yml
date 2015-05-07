@@ -58,7 +58,7 @@
         - zlib1g-dev 
         - libssl-dev
         - libyaml-dev
-
+        - libffi-dev 
 
     - name: check rbenv installed
       command: test -x /home/vagrant/.rbenv
@@ -89,7 +89,7 @@
       ignore_errors: yes
       sudo: no
     - name: install ruby
-      shell: /bin/bash -lc "CONFIGURE_OPTS=--with-readline-dir="/usr/lib/x86_64-linux-gnu/libreadline.so" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
+      shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
       sudo: no
 
