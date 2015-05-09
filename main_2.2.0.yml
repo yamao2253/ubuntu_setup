@@ -3,6 +3,7 @@
   sudo: yes
   vars:
     - ruby_version: 2.2.0
+    - rbenv_configure_opts: --disable-install-rdoc
   tasks:
     - name: apt-get update
       apt: update_cache=yes
@@ -89,7 +90,7 @@
       ignore_errors: yes
       sudo: no
     - name: install ruby
-      shell: /bin/bash -lc "CONFIGURE_OPTS="--disable-install-rdoc" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
+      shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       #shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
       sudo: no
