@@ -87,7 +87,8 @@
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
       register: ruby_installed
-      ignore_errors: yes
+      #ignore_errors: yes
+      failed_when: ruby_installed not in [0, 1]
       sudo: no
     - name: install ruby
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
