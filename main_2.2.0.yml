@@ -91,8 +91,7 @@
       failed_when: ruby_installed.rc not in [0, 1]
       sudo: no
 
-      #- debug: msg="ruby_installed={{ruby_installed.stdout}}"
-      #- debug: msg="ruby_installed.rc={{ruby_installed.rc.stdout}}"
+      #- debug: msg="rbenv_configure_opts={{rbenv_configure_opts}}"
 
     - name: install ruby
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
@@ -119,11 +118,13 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
+    - name: gem preparation of sqlite3 install(libsqlite3-dev)
+      apt: name=libsqlite3-dev state=present
+
     - name: gem install modules for sinatra
       gem: name={{item}} state=latest
       with_items:
         - activerecord
-        - libsqlite3-dev
         - sqlite3
         - sinatra
         - sinatra-contrib
@@ -132,9 +133,6 @@
     # - name: gem install activerecord
     #   gem: name=activerecord state=latest
     #   sudo: no
-
-    # - name: gem preparation of sqlite3 install(libsqlite3-dev)
-    #   apt: name=libsqlite3-dev state=present
 
     # - name: gem install sqlite3
     #   gem: name=sqlite3 state=latest
