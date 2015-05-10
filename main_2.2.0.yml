@@ -91,7 +91,7 @@
       failed_when: ruby_installed.rc not in [0, 1]
       sudo: no
 
-      #- debug: msg="rbenv_configure_opts={{rbenv_configure_opts}}"
+    - debug: msg="rbenv_configure_opts={{rbenv_configure_opts}}"
 
     - name: install ruby
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
@@ -129,23 +129,6 @@
         - sinatra
         - sinatra-contrib
       sudo: no
-
-    # - name: gem install activerecord
-    #   gem: name=activerecord state=latest
-    #   sudo: no
-
-    # - name: gem install sqlite3
-    #   gem: name=sqlite3 state=latest
-    #   sudo: no
-
-    # - name: gem install sinatra
-    #   gem: name=sinatra state=latest
-    #   sudo: no
-
-    # - name: gem install sinatra-contrib
-    #   gem: name=sinatra-contrib state=latest
-    #   sudo: no
-   
 
   handlers:
     - name: restart apache
