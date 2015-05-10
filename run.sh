@@ -6,5 +6,5 @@ test -z $(which ansible-playbook) && \
   sudo apt-get update && \
   sudo apt-get -y install ansible
 
-ansible-playbook main.yml --connection=local
+ansible-playbook main_2.2.0.yml --connection=local
 exec $SHELL -l

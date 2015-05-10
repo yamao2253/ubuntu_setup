@@ -5,7 +5,11 @@
 * ベースは、ドットインストールレッスンで使われていたもの (CentOS)  
   ローカル開発環境の構築[MacOS X編] #05  
   https://github.com/dotinstallres/centos65.git
-* 
+* run.shでansibleのインストールを行っている
+* apache, php, ruby(rbenv), Node.jsのインストールはapnsible-playbookで行う(main.yml)
+* rbenvでインストールするバージョンは2.2.0
+* rubyはrdocはインストールしていない
+* Node.jsは
 
 ## セットアップ手順
     $ mkdir myubuntu && cd myubuntu
