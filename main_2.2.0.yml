@@ -91,8 +91,8 @@
       failed_when: ruby_installed.rc not in [0, 1]
       sudo: no
 
-    - debug: msg="ruby_installed={{ ruby_installed.stderr }}"
-    - debug: msg="ruby_installed.rc={{ ruby_installed.rc.stderr }}"
+    - debug: msg="ruby_installed={{ruby_installed.stdout}}"
+    - debug: msg="ruby_installed.rc={{ruby_installed.rc.stdout}}"
 
     - name: install ruby
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
