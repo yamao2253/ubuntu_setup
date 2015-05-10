@@ -127,6 +127,7 @@
         - sqlite3
         - sinatra
         - sinatra-contrib
+      sudo: no
 
     # - name: gem install activerecord
     #   gem: name=activerecord state=latest
