@@ -87,9 +87,13 @@
     - name: check ruby installed
       shell: /bin/bash -lc "rbenv versions | grep {{ruby_version}}"
       register: ruby_installed
-      ignore_errors: yes
-      #failed_when: ruby_installed not in [0, 1]
+      #ignore_errors: yes
+      failed_when: ruby_installed.rc not in [0, 1]
       sudo: no
+
+    - debug: msg="ruby_installed: {{ ruby_installed.stderr }}"
+    - debug: msg="ruby_installed.rc: {{ ruby_installed.rc.stderr }}"
+
     - name: install ruby
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       #shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
@@ -115,24 +119,33 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-    - name: gem install activerecord
-      gem: name=activerecord state=latest
-      sudo: no
+    - name: gem install modules for sinatra
+      gem: name={{item}} state=latest
+      with_items:
+        - activerecord
+        - libsqlite3-dev
+        - sqlite3
+        - sinatra
+        - sinatra-contrib
 
-    - name: gem preparation of sqlite3 install(libsqlite3-dev)
-      apt: name=libsqlite3-dev state=present
+    # - name: gem install activerecord
+    #   gem: name=activerecord state=latest
+    #   sudo: no
 
-    - name: gem install sqlite3
-      gem: name=sqlite3 state=latest
-      sudo: no
+    # - name: gem preparation of sqlite3 install(libsqlite3-dev)
+    #   apt: name=libsqlite3-dev state=present
 
-    - name: gem install sinatra
-      gem: name=sinatra state=latest
-      sudo: no
+    # - name: gem install sqlite3
+    #   gem: name=sqlite3 state=latest
+    #   sudo: no
 
-    - name: gem install sinatra-contrib
-      gem: name=sinatra-contrib state=latest
-      sudo: no
+    # - name: gem install sinatra
+    #   gem: name=sinatra state=latest
+    #   sudo: no
+
+    # - name: gem install sinatra-contrib
+    #   gem: name=sinatra-contrib state=latest
+    #   sudo: no
    
 
   handlers:
