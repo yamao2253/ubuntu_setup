@@ -1,0 +1,14 @@
+---
+  tasks:
+    - name: gem preparation of sqlite3 install(libsqlite3-dev)
+      apt: name=libsqlite3-dev state=present
+
+    - name: gem install modules for sinatra
+      gem: name={{item}} state=latest
+      with_items:
+        - activerecord
+        - sqlite3
+        - sinatra
+        - sinatra-contrib
+      sudo: no
+

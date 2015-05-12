@@ -2,14 +2,18 @@
 
 ## 内容
 * Ubuntuのローカル開発環境構築スクリプト
-* ベースは、ドットインストールレッスンで使われていたもの (CentOS)  
+* ドットインストールレッスンで使われていたもの (CentOS)をベースに作成した  
   ローカル開発環境の構築[MacOS X編] #05  
   https://github.com/dotinstallres/centos65.git
-* run.shでansibleのインストールを行っている
-* apache, php, ruby(rbenv), Node.jsのインストールはapnsible-playbookで行う(main.yml)
+* run.shでansibleのインストールとapnsible-playbookの実行をする
+* ansible-playbook(main.yml)では以下の内容を実行する
+  - localtimeをAsia/Tokyoにする
+  - apache2のインストール
+  - ruby(rbenv)のインストール
+  - Node.jsのインストール
 * rbenvでインストールするバージョンは2.2.0
-* rubyはrdocはインストールしていない
-* Node.jsは
+* rubyのrdocはインストールしない (CONFIGURE_OPTS="--disable-install-rdoc")
+* Node.jsのコマンド名はnodeにする (update-alternativesを使って)
 
 ## セットアップ手順
     $ mkdir myubuntu && cd myubuntu
