@@ -120,17 +120,6 @@
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
     - include: gem_sinatra.yml
-    #- name: gem preparation of sqlite3 install(libsqlite3-dev)
-    #  apt: name=libsqlite3-dev state=present
-
-    #- name: gem install modules for sinatra
-    #  gem: name={{item}} state=latest
-    #  with_items:
-    #    - activerecord
-    #    - sqlite3
-    #    - sinatra
-    #    - sinatra-contrib
-    #  sudo: no
 
   handlers:
     - name: restart apache

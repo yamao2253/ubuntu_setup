@@ -1,5 +1,4 @@
 ---
-  tasks:
     - name: gem preparation of sqlite3 install(libsqlite3-dev)
       apt: name=libsqlite3-dev state=present
 
