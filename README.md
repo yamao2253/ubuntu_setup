@@ -27,6 +27,7 @@
     $ cd ubuntu_setup
     $ ./run.sh
     $ exec $SHELL -l
+    $ ansible-playbook gem_sinatra.yml --connection=local
 
 ## メモ
 ### php.ini.yamao2253
