@@ -8,3 +8,4 @@ test -z $(which ansible-playbook) && \
 
 ansible-playbook main_2.2.0.yml --connection=local
 exec $SHELL -l
+ansible-playbook gem_sinatra.yml --connection=local
