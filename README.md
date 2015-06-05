@@ -26,8 +26,6 @@
     $ git clone https://github.com/yamao2253/ubuntu_setup.git
     $ cd ubuntu_setup
     $ ./run.sh
-    $ exec $SHELL -l
-    $ ansible-playbook gem_sinatra.yml --connection=local
 
 ## メモ
 ### php.ini.yamao2253
@@ -62,7 +60,7 @@ Changed/Appended parameters from /etc/mysql/my.cnf
 chsh -s /usr/bin/zsh vagrant
 
 
-## rbenv 2.0.0-p195/2.1. インストール
+### rbenv 2.0.0-p195/2.1. インストール
     $ find /usr -name libreadline.so
     $ CONFIGURE_OPTS=--with-readline-dir="/usr/lib/x86_64-linux-gnu/libreadline.so" rbenv install 2.0.0-p195
 
