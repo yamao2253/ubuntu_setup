@@ -94,7 +94,7 @@
 
     - debug: msg="rbenv_configure_opts={{rbenv_configure_opts}}"
 
-    - name: install ruby
+    - name: install ruby version {{ruby_version}}
       shell: /bin/bash -lc "CONFIGURE_OPTS="{{rbenv_configure_opts}}" rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       #shell: /bin/bash -lc "rbenv install {{ruby_version}} && rbenv rehash && rbenv global {{ruby_version}}"
       when: ruby_installed.rc != 0
@@ -119,20 +119,12 @@
     - name: Rename from nodojs to node utilizing update-alternatives
       command: update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10
 
-    #- name: install sinatra utilizing gem
-    #include: gem_sinatra.yml
+    - name: gem preparation of sqlite3 install(libsqlite3-dev)
+      apt: name=libsqlite3-dev state=present
 
-    #- name: gem preparation of sqlite3 install(libsqlite3-dev)
-    #  apt: name=libsqlite3-dev state=present
-
-    #- name: gem install modules for sinatra
-    #  gem: name={{item}} state=latest
-    #  with_items:
-    #    - activerecord
-    #    - sqlite3
-    #    - sinatra
-    #    - sinatra-contrib
-    #  sudo: no
+    - name: gem install bundle
+      gem: name=bundler state=latest user_install=False
+      sudo: no
 
   handlers:
     - name: restart apache
