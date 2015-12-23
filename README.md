@@ -21,6 +21,7 @@
     $ vi Vagrantfile # IP編集
     $ vagrant up
     $ vagrant ssh
+    $ sudo apt-get update
     $ sudo apt-get -y install git
     $ mkdir repos && cd repos
     $ git clone https://github.com/yamao2253/ubuntu_setup.git
